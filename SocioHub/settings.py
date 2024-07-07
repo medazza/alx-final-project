@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # apps
     'core.apps.CoreConfig',
     'core.user.apps.UserConfig',
+    'core.accounts.apps.AccountsConfig',
 
     # third-party apps
     'rest_framework',
