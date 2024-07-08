@@ -59,6 +59,11 @@ class User(AbstractModel, AbstractBaseUser, PermissionsMixin):
     is_superuser = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
 
+    posts_liked = models.ManyToManyField(
+        "core_post.Post",
+        related_name="liked_by"
+    )
+
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
     EMAIL_FIELD = 'email'
@@ -71,3 +76,12 @@ class User(AbstractModel, AbstractBaseUser, PermissionsMixin):
     @property
     def name(self):
         return f"{self.first_name} {self.last_name}"
+    
+    def like_post(self, post):
+        return self.posts_liked.add(post)
+
+    def remove_like_post(self, post):
+        return self.posts_liked.remove(post)
+
+    def has_liked_post(self, post):
+        return self.posts_liked.filter(pk=post.pk).exists()
