@@ -35,25 +35,25 @@ class CommentViewSet(AbstractViewSet):
         self.perform_create(serializer)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     
-    # @action(methods=['post'], detail=True)
-    # def like(self, request, *args, **kwargs):
-    #     comment = self.get_object()
-    #     user = self.request.user
+    @action(methods=['post'], detail=True)
+    def like(self, request, *args, **kwargs):
+        comment = self.get_object()
+        user = self.request.user
 
-    #     user.like_comment(comment)
+        user.like_comment(comment)
 
-    #     serializer = self.serializer_class(comment, context={'request': request})
+        serializer = self.serializer_class(comment, context={'request': request})
 
-    #     return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
-    # @action(methods=['post'], detail=True)
-    # def remove_like(self, request, *args, **kwargs):
-    #     comment = self.get_object()
-    #     user = self.request.user
+    @action(methods=['post'], detail=True)
+    def remove_like(self, request, *args, **kwargs):
+        comment = self.get_object()
+        user = self.request.user
 
-    #     user.remove_like_comment(comment)
+        user.remove_like_comment(comment)
 
-    #     serializer = self.serializer_class(comment, context={'request': request})
+        serializer = self.serializer_class(comment, context={'request': request})
 
-    #     return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
