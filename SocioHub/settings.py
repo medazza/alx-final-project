@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'core.user.apps.UserConfig',
     'core.accounts.apps.AccountsConfig',
     'core.post.apps.PostConfig',
+    'core.comment.apps.CommentConfig',
 
     # third-party apps
     'rest_framework',

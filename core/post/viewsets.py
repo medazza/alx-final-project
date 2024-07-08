@@ -6,14 +6,14 @@ from core.abstract.viewsets import AbstractViewSet
 from rest_framework.permissions import IsAuthenticated
 from core.post.models import Post
 from core.post.serializers import PostSerializer
-# from core.auth.permissions import UserPermission
+from core.accounts.permissions import UserPermission
 
 
 class PostViewSet(AbstractViewSet):
     http_method_names = ('post', 'get', 'put', 'delete')
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (UserPermission,)
     serializer_class = PostSerializer
-    # filterset_fields = ['author__public_id']
+    filterset_fields = ['author__public_id']
 
     def get_queryset(self):
         return Post.objects.all()
