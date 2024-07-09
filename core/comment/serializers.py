@@ -51,6 +51,6 @@ class CommentSerializer(AbstractSerializer):
     class Meta:
         model = Comment
         fields = ['id', 'post', 'author', 'body', 'edited',
-                #   'liked', 'likes_count',
+                  'liked', 'likes_count',
                   'created', 'updated']
         read_only_fields = ["edited"]

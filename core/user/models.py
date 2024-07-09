@@ -63,6 +63,10 @@ class User(AbstractModel, AbstractBaseUser, PermissionsMixin):
         "core_post.Post",
         related_name="liked_by"
     )
+    comments_liked = models.ManyToManyField(
+        "core_comment.Comment",
+        related_name="commented_by"
+    )
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
@@ -85,3 +89,15 @@ class User(AbstractModel, AbstractBaseUser, PermissionsMixin):
 
     def has_liked_post(self, post):
         return self.posts_liked.filter(pk=post.pk).exists()
+    
+    def like_comment(self, comment):
+        """Like `comment` if it hasn't been done yet"""
+        return self.comments_liked.add(comment)
+
+    def remove_like_comment(self, comment):
+        """Remove a like from a `comment`"""
+        return self.comments_liked.remove(comment)
+
+    def has_liked_comment(self, comment):
+        """Return True if the user has liked a `comment`; else False"""
+        return self.comments_liked.filter(pk=comment.pk).exists()
