@@ -1,10 +1,12 @@
 import React from "react";
+import AppLayout from "../ui/AppLayout";
 
 function Home() {
-    return (<div>
-        <h1>Profile</h1>
-        <p>Welcome!</p>
-    </div>);
+    return (
+        <AppLayout>
+            <h1>Home</h1>
+        </AppLayout>
+    );
 }
 
 export default Home;
