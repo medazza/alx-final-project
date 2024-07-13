@@ -33,7 +33,7 @@ function Home() {
                     roundedCircle
                     width={52}
                     height={52}
-                    className="my-2"
+                    className="my-1"
                   />
                 </Col>
                 <Col sm={10} className="flex-grow-1">
@@ -46,6 +46,9 @@ function Home() {
                     refresh={posts.mutate} />
                     ))}
                 </Row>
+            </Col>
+            <Col sm={3}>
+            sugg
             </Col>
           </Row>
         </AppLayout>

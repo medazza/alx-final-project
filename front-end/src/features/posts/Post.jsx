@@ -11,6 +11,12 @@ import { Context } from "../../ui/AppLayout";
 import MoreToggleIcon from "../../ui/MoreToggleIcon";
 import { randomAvatar } from "../../utils/randomAvatar";
 
+
+import { HiHandThumbUp, HiChatBubbleLeft } from "react-icons/hi2";
+
+import DOMPurify from 'dompurify';
+
+
 function Post(props) {
   const { post, refresh, isSinglePost } = props;
   const { setToaster } = useContext(Context);
@@ -32,9 +38,9 @@ function Post(props) {
       .then(() => {
         setToaster({
           type: "warning",
+          title: "Post Deleted",
           message: "Post deleted 🚀",
           show: true,
-          title: "Post Deleted",
         });
         refresh();
       })
@@ -85,12 +91,14 @@ function Post(props) {
               </div>
             )}
           </Card.Title>
-          <Card.Text>{post.body}</Card.Text>
+          {/* <Card.Text>{post.body}</Card.Text> */}
+          {/* <Card.Text dangerouslySetInnerHTML={{ __html: post.body }} /> */}
+          <Card.Text dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.body), }} />
           
         </Card.Body>
         <Card.Footer className="d-flex bg-white w-50 justify-content-between border-0">
           <div className="d-flex flex-row">
-            <LikeOutlined
+            {/* <LikeOutlined
               style={{
                 width: "24px",
                 height: "24px",
@@ -105,7 +113,22 @@ function Post(props) {
                   handleLikeClick("like");
                 }
               }}
-            />
+            /> */}
+            <HiHandThumbUp 
+            style={{
+              width: "24px",
+              height: "24px",
+              padding: "2px",
+              fontSize: "1.5em",
+              color: post.liked ? "#0D6EFD" : "#C4C4C4",
+            }}
+            onClick={() => {
+              if (post.liked) {
+                handleLikeClick("remove_like");
+              } else {
+                handleLikeClick("like");
+              }
+            }}/>
             <p className="ms-1 fs-6">
                 <small>{post.likes_count}</small>
             </p>
@@ -113,7 +136,15 @@ function Post(props) {
           {!isSinglePost && (
             <div className="d-flex flex-row">
               <Link to={`/post/${post.id}/`}>
-              <CommentOutlined
+              <HiChatBubbleLeft 
+              style={{
+                width: "24px",
+                height: "24px",
+                padding: "1px",
+                fontSize: "1.5em",
+                color: "#C4C4C4",
+              }}/>
+              {/* <CommentOutlined
                 style={{
                   width: "24px",
                   height: "24px",
@@ -121,7 +152,7 @@ function Post(props) {
                   fontSize: "20px",
                   color: "#C4C4C4",
                 }}
-              />
+              /> */}
               </Link>
               <p className="ms-1 mb-0">
                 <small>

@@ -1,15 +1,25 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
+
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import "../../quill-custom.css";
+
 import axiosService from "../../services/axios";
 import { getUser } from "../../hooks/useLocalStorageState";
 import { Context } from "../../ui/AppLayout";
+import { modules, formats, configureHighlightJS } from "../../utils/helpers";
 
 function CreatePost(props) {
+  useEffect(() => {
+    configureHighlightJS(); // Configure highlight.js on component mount
+  }, []);
+
   const { refresh } = props;
   const [show, setShow] = useState(false);
-
-  const [validated, setValidated] = useState(false);
-  const [form, setForm] = useState({});
+  
+  const [body, setBody] = useState("");
+  const quillRef = useRef(null);
 
   const { setToaster } = useContext(Context);
 
@@ -18,19 +28,15 @@ function CreatePost(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const createPostForm = event.currentTarget;
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    if (createPostForm.checkValidity() === false) {
-      event.stopPropagation();
-    }
-
-    setValidated(true);
+    const quillEditor = quillRef.current.getEditor();
+    const formattedBody = quillEditor.root.innerHTML;
 
     const data = {
       author: user.id,
-      body: form.body,
+      body: formattedBody,
     };
 
     axiosService
@@ -39,11 +45,11 @@ function CreatePost(props) {
         handleClose();
         setToaster({
           type: "success",
-          message: "Post created 🚀",
+          message: "Successfully created 🚀",
           show: true,
           title: "Post Success",
         });
-        setForm({});
+        setBody("");
         refresh();
       })
       .catch(() => {
@@ -58,43 +64,40 @@ function CreatePost(props) {
 
   return (
     <>
-      <Form.Group className="my-3 w-75">
+      <Form.Group className="my-3 w-80">
         <Form.Control
-          className="py-2 rounded-pill border-primary text-primary"
+          className="py-1 rounded-pill border-primary text-primary"
           type="text"
           placeholder="Write a post"
           onClick={handleShow}
         />
       </Form.Group>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton className="border-0">
-          <Modal.Title>Create Post</Modal.Title>
+      <Modal show={show} onHide={handleClose} size="lg">
+        <Modal.Header closeButton className="border-0 py-0 my-0 ">
+          <Modal.Title>Create New Post</Modal.Title>
         </Modal.Header>
         <Modal.Body className="border-0">
-          <Form
-              noValidate 
-              validated={validated} 
-              onSubmit={handleSubmit}
-            >
-            <Form.Group className="mb-3">
-              <Form.Control
-                name="body"
-                value={form.body}
-                onChange={(e) => setForm({ ...form, body: e.target.value })}
-                as="textarea"
-                rows={3}
-              />
-            </Form.Group>
-          </Form>
+          <ReactQuill
+            ref={quillRef}
+            value={body}
+            onChange={setBody}
+            modules={modules}
+            formats={formats}
+            bounds="#editor"
+            placeholder="Write something..."
+            // className="text-black dark:text-white"
+            className="w-full h-[100%] mt-10 bg-white "
+          />
         </Modal.Body>
         <Modal.Footer>
           <Button
+            className="border-0 py-0 my-0 "
             variant="primary"
             onClick={handleSubmit}
-            disabled={form.body === undefined}
+            disabled={body === ""}
           >
-            Post
+            Create
           </Button>
         </Modal.Footer>
       </Modal>

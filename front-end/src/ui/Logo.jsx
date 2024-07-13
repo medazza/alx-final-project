@@ -15,7 +15,7 @@ const Img = styled.img`
 
 function Logo() {
 
-  const src = "/logo1.png";
+  const src = "/logo4.png";
 
   return (
     <StyledLogo>

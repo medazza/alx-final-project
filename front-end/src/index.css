@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+p {
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  font-weight: 400;
+
+}
+
+pre {
+    background-color: #23241f; /* Light grey background */
+    color: #f8f8f2; /* Black text color */
+    margin-bottom: 0%;
+    padding: 10px; /* Padding around the code */
+    border-radius: 5px; /* Rounded corners */
+    overflow: visible; /* Scroll if content overflows */
+}

@@ -1,0 +1,27 @@
+.ql-snow .ql-editor pre.ql-syntax {
+    background-color: #23241f; /* Light grey background */
+    color: #f8f8f2;
+    padding: 10px; /* Padding around the code */
+    border-radius: 5px; /* Rounded corners */
+    overflow: visible; /* Scroll if content overflows */
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  
+  .ql-snow .ql-picker.ql-size .ql-picker-item[data-value="small"]::before {
+    content: "Small";
+    
+  }
+  
+  .ql-snow .ql-picker.ql-size .ql-picker-item[data-value="large"]::before {
+    content: "Large";
+  }
+  
+  .ql-snow .ql-picker.ql-size .ql-picker-item[data-value="huge"]::before {
+    content: "Huge";
+  }
+  
+  .ql-snow .ql-picker.ql-size .ql-picker-label::before {
+    content: "Normal";
+  }
+  
