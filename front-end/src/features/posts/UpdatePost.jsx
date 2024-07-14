@@ -24,7 +24,11 @@ function UpdatePost({ post, refresh }) {
   const user = getUser();
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setBody(post.body); // Set the body state to the current post body
+    setShow(true);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();

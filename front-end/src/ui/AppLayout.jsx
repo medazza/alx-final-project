@@ -4,6 +4,10 @@ import { ArrowLeftOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import Toaster from "./Toaster";
 
+
+import { HiArrowLeftCircle } from "react-icons/hi2";
+
+
 export const Context = createContext("unknown");
 
 function AppLayout(props) {
@@ -23,11 +27,21 @@ function AppLayout(props) {
       <div>
         <Header />
         {hasNavigationBack && (
-          <ArrowLeftOutlined
+          // <ArrowLeftOutlined
+          //   style={{
+          //     color: "#0D6EFD",
+          //     fontSize: "24px",
+          //     marginLeft: "5%",
+          //     marginTop: "1%",
+          //   }}
+          //   onClick={() => navigate(-1)}
+          // />
+          <HiArrowLeftCircle
             style={{
+              // color: "black",
+              fontSize: "1.9em",
               color: "#0D6EFD",
-              fontSize: "24px",
-              marginLeft: "5%",
+              marginLeft: "25%",
               marginTop: "1%",
             }}
             onClick={() => navigate(-1)}

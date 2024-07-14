@@ -118,8 +118,8 @@ function Post(props) {
             style={{
               width: "24px",
               height: "24px",
-              padding: "2px",
-              fontSize: "1.5em",
+              padding: "0px",
+              marginTop: "2px",
               color: post.liked ? "#0D6EFD" : "#C4C4C4",
             }}
             onClick={() => {
@@ -129,7 +129,7 @@ function Post(props) {
                 handleLikeClick("like");
               }
             }}/>
-            <p className="ms-1 fs-6">
+            <p className="ms-1 fs-5">
                 <small>{post.likes_count}</small>
             </p>
           </div>
@@ -139,9 +139,9 @@ function Post(props) {
               <HiChatBubbleLeft 
               style={{
                 width: "24px",
-                height: "24px",
-                padding: "1px",
-                fontSize: "1.5em",
+               height: "24px",
+               padding: "0px",
+               marginTop: "2px",
                 color: "#C4C4C4",
               }}/>
               {/* <CommentOutlined
@@ -154,7 +154,7 @@ function Post(props) {
                 }}
               /> */}
               </Link>
-              <p className="ms-1 mb-0">
+              <p className="ms-1 fs-5">
                 <small>
                   {post.comments_count}
                 </small>
