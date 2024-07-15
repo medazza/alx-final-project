@@ -19,6 +19,11 @@ p {
 
 }
 
+p img {
+  max-width: 100%;
+   max-height: 100%;
+}
+
 pre {
     background-color: #23241f; /* Light grey background */
     color: #f8f8f2; /* Black text color */
@@ -26,4 +31,8 @@ pre {
     padding: 10px; /* Padding around the code */
     border-radius: 5px; /* Rounded corners */
     overflow: visible; /* Scroll if content overflows */
+    max-width: 100%;
+    max-height: 100%;
+    white-space: pre-wrap;
+  word-break: break-all;
 }

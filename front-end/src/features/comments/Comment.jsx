@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { format } from "timeago.js";
 import { LikeOutlined } from "@ant-design/icons";
 import { Image, Card, Dropdown } from "react-bootstrap";
-import { randomAvatar } from "../../utils/randomAvatar";
+// import { randomAvatar } from "../../utils/randomAvatar";
 import axiosService from "../../services/axios";
 import { getUser } from "../../hooks/useLocalStorageState";
 import { Context } from "../../ui/AppLayout";
@@ -54,7 +54,7 @@ function Comment(props) {
         <Card.Title className="d-flex flex-row justify-content-between">
           <div className="d-flex flex-row">
             <Image
-              src={randomAvatar()}
+              src={comment.author.image}
               roundedCircle
               width={48}
               height={48}

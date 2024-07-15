@@ -9,7 +9,7 @@ import { getUser } from "../../hooks/useLocalStorageState";
 import UpdatePost from "./UpdatePost";
 import { Context } from "../../ui/AppLayout";
 import MoreToggleIcon from "../../ui/MoreToggleIcon";
-import { randomAvatar } from "../../utils/randomAvatar";
+// import { randomAvatar } from "../../utils/randomAvatar";
 
 
 import { HiHandThumbUp, HiChatBubbleLeft } from "react-icons/hi2";
@@ -61,7 +61,7 @@ function Post(props) {
           <Card.Title className="d-flex flex-row justify-content-between">
             <div className="d-flex flex-row">
               <Image
-                src={randomAvatar()}
+                src={post.author.image}
                 roundedCircle
                 width={48}
                 height={48}

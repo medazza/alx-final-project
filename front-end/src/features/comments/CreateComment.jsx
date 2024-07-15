@@ -2,13 +2,13 @@ import React, { useState, useContext } from "react";
 import { Button, Form, Image } from "react-bootstrap";
 import axiosService from "../../services/axios";
 import { getUser } from "../../hooks/useLocalStorageState";
-import { randomAvatar } from "../../utils/randomAvatar";
+// import { randomAvatar } from "../../utils/randomAvatar";
 
 import { Context } from "../../ui/AppLayout";
 
 function CreateComment(props) {
   const { postId, refresh } = props;
-  const [avatar, setAvatar] = useState(randomAvatar());
+  // const [avatar, setAvatar] = useState(randomAvatar());
   const [validated, setValidated] = useState(false);
   const [form, setForm] = useState({});
 
@@ -62,7 +62,7 @@ function CreateComment(props) {
       onSubmit={handleSubmit}
     >
       <Image
-        src={avatar}
+        src={user.image}
         roundedCircle
         width={48}
         height={48}
@@ -72,7 +72,7 @@ function CreateComment(props) {
         <Form.Control
           className="py-2 rounded-pill border-primary"
           type="text"
-          placeholder="Write a comment"
+          placeholder="Start a comment"
           value={form.body}
           name="body"
           onChange={(e) => setForm({ ...form, body: e.target.value })}

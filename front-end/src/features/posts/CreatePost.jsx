@@ -68,7 +68,7 @@ function CreatePost(props) {
         <Form.Control
           className="py-1 rounded-pill border-primary text-primary"
           type="text"
-          placeholder="Write a post"
+          placeholder="Start a post"
           onClick={handleShow}
         />
       </Form.Group>

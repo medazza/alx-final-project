@@ -39,7 +39,7 @@ function AppLayout(props) {
           <HiArrowLeftCircle
             style={{
               // color: "black",
-              fontSize: "1.9em",
+              fontSize: "2.9em",
               color: "#0D6EFD",
               marginLeft: "25%",
               marginTop: "1%",

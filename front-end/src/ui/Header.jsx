@@ -1,7 +1,8 @@
 import React from "react";
-import { randomAvatar } from "../utils/randomAvatar";
+// import { randomAvatar } from "../utils/randomAvatar";
 import { Navbar, Container, Image, NavDropdown, Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { HiOutlineUser, HiArrowRightOnRectangle } from "react-icons/hi2";
 
 import { getUser } from "../hooks/useLocalStorageState";
@@ -19,7 +20,7 @@ function Header() {
     return (
         <Navbar bg="primary" variant="dark">
           <Container>
-            <Navbar.Brand className="fw-bold" href="#home">
+            <Navbar.Brand className="fw-bold" as={Link} to={`/`}>
             <Image
                       src={"/logo4.png"}
                       roundedCircle
@@ -50,13 +51,15 @@ function Header() {
             </Navbar.Collapse> */}
             <Navbar.Collapse className="justify-content-end">
                   <Image
-                      src={randomAvatar()}
+                      src={user.image}
                       roundedCircle
                       width={50}
                       height={50}
-                    />
-                      <span className="m-2">{user.name}</span>
-                   <HiOutlineUser style={style} />
+                />
+             <span className="m-2">{user.name}</span>
+             <a href={`/profile/${user.id}/`}>
+            <HiOutlineUser style={style} />
+             </a>
                 <HiArrowRightOnRectangle onClick={handleLogout}  style={style}/>
             </Navbar.Collapse>
           </Container>

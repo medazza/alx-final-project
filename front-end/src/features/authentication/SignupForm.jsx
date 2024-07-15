@@ -32,7 +32,7 @@ function SignupForm() {
       email: form.email,
       first_name: form.first_name,
       last_name: form.last_name,
-      bio: form.bio,
+      // bio: form.bio,
     };
 
     userActions.register(data)
@@ -130,7 +130,7 @@ function SignupForm() {
         />
       </Form.Group>
 
-      <div className="text-content text-danger">{error && <p>{error}</p>}</div>
+      <div className="text-content text-danger">{error && <small>{error}</small>}</div>
 
       <Button data-testid="submit-button" variant="primary" type="submit">
         Submit
