@@ -8,7 +8,8 @@ import {
 
 
 const axiosService = axios.create({
-    baseURL: "http://localhost:8000/api",
+    // baseURL: "http://localhost:8000/api",
+    baseURL: process.env.REACT_APP_API_URL,
     headers: {
         "Content-Type": "application/json",
     },
@@ -35,7 +36,8 @@ const refreshAuthLogic = async (failedRequest) => {
           refresh: getRefreshToken(),
         },
         {
-          baseURL: "http://localhost:8000/api",
+          // baseURL: "http://localhost:8000/api",
+          baseURL: process.env.REACT_APP_API_URL,
         }
       )
     .then((resp) => {
