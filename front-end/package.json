@@ -4,9 +4,10 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.3.7",
+    "@faker-js/faker": "^8.4.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.2.1",
+    "@testing-library/user-event": "^14.5.2",
     "axios": "^1.7.2",
     "axios-auth-refresh": "^3.3.6",
     "bootstrap": "^5.3.3",
@@ -23,12 +24,13 @@
     "styled-components": "^6.1.11",
     "swr": "^2.2.5",
     "timeago.js": "^4.0.2",
+    "uuid": "^10.0.0",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -48,5 +50,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "resetMocks": false
+  },
+  "devDependencies": {
+    "jest-localstorage-mock": "^2.4.26"
   }
 }

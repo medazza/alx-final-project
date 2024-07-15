@@ -69,13 +69,15 @@ function UpdatePost({ post, refresh }) {
 
   return (
     <>
-      <Dropdown.Item onClick={handleShow}>Edit</Dropdown.Item>
+      <Dropdown.Item donClick={handleShow}>
+        Edit
+        </Dropdown.Item>
 
       <Modal show={show} onHide={handleClose} size="lg">
         <Modal.Header closeButton className="border-0 py-0 my-0 ">
           <Modal.Title>Edit Post</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="border-0">
+        <Modal.Body className="border-0" >
           <ReactQuill
             ref={quillRef}
             value={body}
