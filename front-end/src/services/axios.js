@@ -9,7 +9,8 @@ import {
 
 const axiosService = axios.create({
     // baseURL: "http://localhost:8000/api",
-    baseURL: process.env.REACT_APP_API_URL,
+    // baseURL: process.env.REACT_APP_API_URL,
+    baseURL : "https://azzamed.pythonanywhere.com/api",
     headers: {
         "Content-Type": "application/json",
     },
@@ -37,7 +38,8 @@ const refreshAuthLogic = async (failedRequest) => {
         },
         {
           // baseURL: "http://localhost:8000/api",
-          baseURL: process.env.REACT_APP_API_URL,
+          // baseURL: process.env.REACT_APP_API_URL,
+           baseURL : "https://azzamed.pythonanywhere.com/api"
         }
       )
     .then((resp) => {
