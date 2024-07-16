@@ -69,8 +69,8 @@ function UpdatePost({ post, refresh }) {
 
   return (
     <>
-      <Dropdown.Item donClick={handleShow}>
-        Edit
+      <Dropdown.Item onClick={handleShow}>
+        Update
         </Dropdown.Item>
 
       <Modal show={show} onHide={handleClose} size="lg">
