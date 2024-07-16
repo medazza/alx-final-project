@@ -14,6 +14,10 @@ function Header() {
     navigate("/login/");
   };
 
+  const handleProfile = () => {
+    navigate(`/profile/${user.id}/`);
+  };
+
 
   const style = { color: "white", fontSize: "1.9em" , marginRight: "2px", marginLeft: "2px"}
 
@@ -57,9 +61,7 @@ function Header() {
                       height={50}
                 />
              <span className="m-2">{user.name}</span>
-             <a href={`/profile/${user.id}/`}>
-            <HiOutlineUser style={style} />
-             </a>
+                <HiOutlineUser style={style} onClick={handleProfile}/>
                 <HiArrowRightOnRectangle onClick={handleLogout}  style={style}/>
             </Navbar.Collapse>
           </Container>
