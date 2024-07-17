@@ -2,6 +2,21 @@
 
 SOCIOHUB is a new social media platform designed for developers and programmers. The app aims to create a community where users can connect, share ideas, and collaborate on projects.
 
+
+![SOCIOHUB Screenshot](./project.png)
+
+
+## Team Members
+
+
+![Example Image](./me.png)
+
+
+## Connect with the Team
+
+- **AZZA Mohamed**  [Linkedin](https://www.linkedin.com/in/mohamed-azza-a2895385/)  -    [Twitter](https://x.com/midazza27)
+
+
 ## Features
 
 - User registration and authentication
