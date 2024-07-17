@@ -12,7 +12,7 @@ SOCIOHUB is a new social media platform designed for developers and programmers.
 ![Example Image](./me.png)
 
 
-## Connect with the Team
+## Connect with me
 
 - **AZZA Mohamed**  [Linkedin](https://www.linkedin.com/in/mohamed-azza-a2895385/)  -    [Twitter](https://x.com/midazza27)
 
