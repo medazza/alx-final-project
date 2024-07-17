@@ -19,11 +19,12 @@ SOCIOHUB is a new social media platform designed for developers and programmers.
 
 ## Features
 
-- User registration and authentication
-- User profiles with customizable information and avatars
-- Newsfeed for sharing posts, links, and code snippets
-- create comments for posts
-- like posts and comments
+- ✅ User Authentication: Users can register, login.
+- ✅ User profiles: update profile.
+- ✅ Newsfeed for sharing posts, links, and code snippets
+- ✅ create comments for posts
+- ✅ like posts and comments
+- ✅ Admin Dashboard: Admins have access to a special dashboard to manage users, posts, and comments.
 
 ## Technologies Used
 
