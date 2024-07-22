@@ -42,25 +42,25 @@ SOCIOHUB is a new social media platform designed for developers and programmers.
 
 ## Installation
 
-1. Clone the repository:
+1. Clone the repository:<br />
 `git clone https://github.com/medazza/alx-final-project.git`
 
-2. Navigate to the project directory:
+2. Navigate to the project directory:<br />
 `cd SocioHub`
 
-3. Set up a virtual environment (optional but recommended):
-`python -m venv env`
+3. Set up a virtual environment (optional but recommended):<br />
+`python -m venv env`<br />
 `source env/bin/activate`
 
-4. Install the required dependencies:
+4. Install the required dependencies:<br />
 `pip install -r requirements.txt`
 
-5. Run the Django development server:
+5. Run the Django development server:<br />
 `python manage.py runserver`
 
-6. In a separate terminal, navigate to the `front-end` directory and start the React development server:
-cd front-end
-npm start
+6. In a separate terminal, navigate to the `front-end` directory and start the React development server:<br />
+`cd front-end`
+`npm start`
 
 ## Contributing
 
